@@ -148,7 +148,7 @@ where
         // Spectral construction inner loop, where the fractal is built.
         for x in 1..self.octaves {
             // Prevent divergence.
-            weight = weight.max(1.0);
+            weight = weight.max(-1.0).min(1.0);
 
             // Raise the spatial frequency.
             point *= self.lacunarity;
